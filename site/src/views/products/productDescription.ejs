@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+
+ <!------- HEADER INICIO ------------>
+ <%- include('../partials/header.ejs') %>
+ <!------- HEADER FIN ---------------->
+
+<!------   Producto -------------------------->
+<h1 class="descriptionProduct-title">Descripción</h1>
+    <section class="container">
+        <div class="descriptionProduct-container">
+            <section class="descriptionProduct-name">
+                <% if(product.offer){ %> 
+                <h1 class="descriptionProduct-name-title-offer">
+                    <i class="fa fa-medal"></i>
+                    <%= product.product_name %>
+                </h1>
+                <% } else { %>
+                <h1 class="descriptionProduct-name-title">
+                    <%= product.product_name %>
+                </h1>
+                <% } %>
+
+            </section>
+            
+            <section class="descriptionProduct-description">
+                <p>
+                    <%= product.description %>
+                </p>
+            </section>
+
+            <form action="">
+                <section class="descriptionProduct-details">
+                    <div class="descriptionProduct-image">
+                        <img src="/img/<%= product.image %>" alt="imagen del producto">
+                    </div>
+                    <div class="descriptionProduct-productLines">
+                        <p class="bodega">Bodega: <span><%= product.wine_family %></span></p>
+                        <p class="description-widescreen">
+                            <%= product.description %>
+                        </p>
+                        <p class="year">Año: <span><%= product.year %></span></p>
+                        <p class="type">Tipo: <span><%= product.categorias.category_name %></span></p>
+                        <% if(product.offer){ %> 
+                            <p class="price">Precio:<span class="description_price_line_through">&nbsp $<%= product.price %> </span><span class="description_offer_price">&nbsp &nbsp $<%= product.offer_price %> </span></p>
+                        <% } else {%>
+                            <p class="price">Precio: $<span><%= product.price %></span></p>
+                        <% } %>
+                        <!-- <p class="description">12 meses RF</p> -->
+                    </div> 
+                </section>
+                <!-- <div class="descriptionProduct-cartButton">
+                    <button type="submit">Agregar al carrito</button>
+                </div> -->
+
+                <div class="product-buy">
+                    <a type="button" class="callToAction-add-product" href="/products/add-to-cart/<%= product.id_product %>"><p>Agregar al carrito</p></a>
+                </div>
+
+            </form>
+        </div>
+    </section>
+  <!----------------------------------->
+  <!------- FOOTER INICIO ------------>
+  <%- include('../partials/footer.ejs') %>
+  <!------- FOOTER FIN --------------->
+</body>
+</html>

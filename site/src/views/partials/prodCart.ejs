@@ -1,0 +1,67 @@
+<!--***Ejemplo del Carrito con un solo product de ID 2, donde (item = un producto) ***
+
+Cart {
+    items: {
+      '2': { item: [Product], qty: 1, price: 988, category_name: 'Malbec' }
+    },
+    totalQty: 1,
+    totalPrice: '0988.00',
+   }
+
+
+-->
+
+
+<% if (products) {  %>
+    <!--***LISTADO DE PRODUCTOS DEL CARRITO DE COMPRA***-->
+            <% products.forEach (productItem => {  %>
+                <% product = productItem.item  %>
+                <!-- <% console.log('prodCart.ejs :PRIMER PRODUCTO  ', product) %> -->
+                <!-- CARD DEL PRODUCTO INICIO-->
+                <div class="conteiner-product">
+                    <a class="image-product" href="/products/productDescription/<%= product.id_product %>">
+                        <img src="/img/<%= product.image %>" alt="imagenProducto">
+                    </a>
+                    <a class="description-product" href="/products/productDescription/<%= product.id_product %>">
+                        <h3><%= product.product_name %></h3>
+                        <p>Varietal: <span><%= productItem.category_name %></span></p>
+                        <p>Año: <span><%= product.year %></span></p>
+                        <p>Cant: <span><%= productItem.qty %></span></p>
+                    </a>
+                    <div class="cost-delete-product">
+                        <div class="delete-product">
+                            <form action="" class="container_button_item_cart">
+                                <!-- Borrar un item-->
+                                <div class="cart_button_icons">
+                                    <a href="/products/reduceFromCart/<%= product.id_product %>" ><i class="fa fa-minus"></i></a>
+                                </div>
+
+                                <!-- Sumar un item-->
+                                <div class="cart_button_icons">
+                                <a href="/products/add-to-cart/<%= product.id_product %>"><i class="fa fa-plus"></i></a>
+                                </div>
+
+                                <!-- Borrar el producto-->
+                                <div class="cart_button_icons">
+                                <a href="/products/removeFromCart/<%= product.id_product %>"><i class="fa fa-trash"></i></a>
+                                </div>
+
+                                <!-- <button type="submit">
+                                    <i class="fa fa-trash"></i>
+                                </button> -->
+                            </form>            
+                        </div>
+                        <div class="cost-product">
+                            <p>$ <span><%= productItem.price %></span></p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!-- CARD DEL PRODUCTO FIN-->
+            <% }) %>   <!-- Fin forEach -->
+
+
+
+
+<% } %>
+

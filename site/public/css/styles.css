@@ -1,0 +1,63 @@
+@import url("/css/404.css");/*trae los estilos de la pagina de error 404.css*/
+@import url("/css/productCart.css");/*trae los estilos del productCart.css*/
+@import url("/css/abmProducts.css");/*trae los estilos del CRUD/ABM.css*/
+@import url("/css/login-register.css");/*trae los estilos del login-register.css para ambas pantallas*/
+@import url("/css/productDescription.css");/*trae los estilos del descripcion del producto.css*/
+@import url("/css/listUsers.css");/*trae los estilos para la pantalla de lista de usuarios listUsers.css*/
+@import url("/css/index.css");/*trae los estilos del index.css*/
+
+*{
+    box-sizing: border-box;/*regla para el box-model tenga el total de la medida dada, incluido border, margin, padding y contenido*/
+}
+
+body{
+    background-color: #161616;
+    min-width: 250px;/*para dar un minimo de ancho que se vea bien.*/
+}
+
+/***Para evitar que se rellene el input por defecto con el color blanco y letra negra***/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+    transition: "color 9999s ease-out, background-color 9999s ease-out";
+    transition-delay: 9999s;
+}
+
+.errorMessage{
+    position: absolute;
+    top:1.2rem;
+    color: red;
+}
+
+.fixedErrorMessageInTextArea{
+    top:4rem;
+}
+
+/*
+COLORES
+dorado:         #B0976D     call to action y cosas que resaltan
+negro:          #1A1A1A ---- viejo -----
+negro:          #161616
+gris oscuro:    #333333     (header)
+gris claro:     #F1F1F1
+blanco:         #FFFFFF
+
+TIPOGRAFIA
+Arial para el texto en general
+Oxigen de googlefonts para el titulo h1 y h2
+Yellowtail de googlefonts para el titulo "Club del Vino"
+
+ICONOS
+pagina de fontawesome y usar buscador o elegir un icono del listado que tiene
+https://fontawesome.com/icons?d=gallery
+
+Estructura... columnas ejemplo %.u
+Fuentes y letras: Rem. x defecto 16 px
+Paddings en rem también. puede ser. 
+Padding entre iconos con px también. 
+VH es decirle el body que ocupe el 100% 
+iconos rem.
+*/

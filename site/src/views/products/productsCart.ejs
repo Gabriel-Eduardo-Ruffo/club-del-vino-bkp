@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+<!------- HEADER INICIO ------------>
+<%- include('../partials/header.ejs') %>
+<!------- HEADER FIN ---------------->
+
+<!--***LISTADO DE PRODUCTOS DEL CARRITO 1col***-->
+    <div class="titleProductCart">
+        <h2>CARRITO DE COMPRAS</h2>
+    </div>
+    <div class="containerListProductCart">        
+        <section><!--Listado con scroll de productos seleccionados para comprar-->
+            <!-- PROD INICIO-->
+            <%- include('../partials/prodCart.ejs') %>
+            <!-- PROD FIN-->
+        </section>   
+    </div>
+    <!-----------------------------------> 
+    <% if (products && (totalQty > 0)) {  %>
+                <div class="callToActionBuyProductCart-section-positionAbsolute"><!--total de precio y boton comprar-->
+                    <p><!--total costo-->
+                        Total: $ <span><%= totalPrice %></span>
+                    </p>
+
+                    <!--Revisar CSS para mejorar boton de seguir comprando-->
+                    <div class="button-buy">
+                        <a href="/home"> 
+                            <button>Volver</button>
+                        </a>
+                    </div>
+
+                    <div class="button-buy"><!--boton call to action-->
+                        <button>Confirmar comprar</button>
+                    </div>
+                </div>
+    <% }else{ %> <!--Sin productos-->
+        
+        <div class="titleProductCart">
+            <h2>No hay productos en su carrito</h2>
+        </div>
+    <% } %>
+
+
+<!----------------------------------->  
+
+<!--************FOOTER*************-->
+    <footer class="fill-fixed">
+        <!--Este footer no se vera, es para rellenar espacio y que no queden tarjetas a medio mostrar-->
+    </footer>
+<!----------------------------------->   
+</body>
+</html>

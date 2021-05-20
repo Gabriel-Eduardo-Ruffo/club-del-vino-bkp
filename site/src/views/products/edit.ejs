@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+
+ <!------- HEADER INICIO ------------>
+ <%- include('../partials/header.ejs') %>
+ <!------- HEADER FIN ---------------->
+
+<!------   Producto -------------------------->
+<h1 class="descriptionProduct-title">Editar Producto</h1>
+    <section class="container">
+        <div class="abmProducts-container">
+
+            <form action="/products/<%= product.id_product %>/edit?_method=PUT" method="POST" enctype="multipart/form-data" class="abmProducts-mainfield" id="formEditProduct">
+
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="product_name" name="product_name" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.product_name %>">
+                        <label for="product_name">Nombre del producto</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.product_name){ %> <p class="errorMessage"> <%= errors.product_name.msg %></p> <% } %>
+                        <!------------------------------------->
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_name"></span><div class="msgCheck" id="msgCheck_product_name"><p>Debe ser un nombre de mas de 4 letras</p></div>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.product_name){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
+                    </div>
+                </div>
+
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-textArea">
+                        <label for="description">Descripción del producto</label>
+                        <textarea class='abmProducts-textArea' id="description" name="description" autocomplete="off" value="<%= product.description %>" rows="3" cols="50"><%= product.description %></textarea>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.description){ %> <p class="errorMessage fixedErrorMessageInTextArea"> <%= errors.description.msg %></p> <% } %>
+                        <!------------------------------------->
+                    </div> 
+                    <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_description"></span><div class="msgCheckfixedTextArea" id="msgCheck_description">La descripcion debe tener mas de 10 letras</div>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.description){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
+                    </div>     
+                </div>
+
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="wine_family" name="wine_family" class="abmProducts-input-effect" placeholder autocomplete="off"  value="<%= product.wine_family %>">
+                        <label for="wine_family">Bodega</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.wine_family){ %> <p class="errorMessage"> <%= errors.wine_family.msg %></p> <% } %>
+                        <!------------------------------------->
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_wine_family"></span><div class="msgCheck" id="msgCheck_wine_family"><p>Debe ser una bodega que tenga mas de 3 letras</p></div>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.wine_family){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
+                    </div>
+                </div>
+
+
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <label class="abmProducts-label-category" for="category_id">Categoria</label>
+
+                        <select name="category_id" id="category_id">
+                        <% for (let i=0; i < category.length; i++) { %>
+                            <% if (category[i].id_category == product.category_id) { %>
+                                <option value="<%=category[i].id_category%>" selected><%=category[i].category_name%></option>
+                            <% } else { %>
+                                 <option value="<%=category[i].id_category%>"><%=category[i].category_name%></option>
+                                 <% } %> 
+                            <% } %>
+                        </select>  
+
+
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.category_id){ %> <p class="errorMessage"> <%= errors.category_id.msg %></p> <% } %>
+                        <!------------------------------------->                      
+                    </div>
+
+                    <div class="abmProducts-block-checkIcon">
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.category_id){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
+                    </div>
+
+                </div>
+
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="year" name="year" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.year %>" >
+                        <label for="year">Año</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.year){ %> <p class="errorMessage"> <%= errors.year.msg %></p> <% } %>
+                        <!------------------------------------->
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_year"></span><div class="msgCheck" id="msgCheck_year"><p>Debe ser un año entre 1800 y el año actual</p></div>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.year){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
+                    </div>
+                </div>
+
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="price" name="price" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.price %>" >
+                        <label for="price">Precio</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.price){ %> <p class="errorMessage"> <%= errors.price.msg %></p> <% } %>
+                        <!------------------------------------->
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_price"></span><div class="msgCheck" id="msgCheck_price"><p>Debe ser un precio entre 1 y 99999.99</p></div>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.price){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
+                    </div>
+                </div>
+
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" >
+                        <label for="image">Imagen</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.image){ %> <p class="errorMessage"> <%= errors.image.msg %></p> <% } %>
+                        <!------------------------------------->
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_image"></span><div class="msgCheck" id="msgCheck_image"><p>Debe ser una imagen valida jpg, png o jpeg</p></div>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.image){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
+                    </div>
+                </div>
+
+                <div class="abmProducts-container-checkbox">
+                    <h3 class="abmProducts-label-checkbox">Oferta</h3>
+                    <div class="abmProducts-offer">
+                        <% if (product.offer == 1) { %>
+                            <input type="checkbox" id="offer" name="offer" checked >
+                        <%  } else { %>
+                            <input type="checkbox" id="offer" name="offer" >
+                        <%  } %>
+                        <label for="offer"></label>
+                    </div>
+                </div>
+                
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="offer_price" name="offer_price" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.offer_price %>" >
+                        <label for="offerPrice">Precio de oferta</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.offer_price){ %> <p class="errorMessage"> <%= errors.offer_price.msg %></p> <% } %>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_offer_price"></span><div class="msgCheck" id="msgCheck_offer_price"><p>Debe ser un precio entre 1 y 99999.99</p></div>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.image){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+                    
+
+                <hr>
+                
+                <div class="abmProducts-guardar">
+                    <button type="submit" id="button_submit_update_product_form">Guardar producto</button>
+                </div>
+            </form>
+        </div>
+    </section>
+  <!----------------------------------->
+  <!------- FOOTER INICIO ------------>
+  <%- include('../partials/footer.ejs') %>
+  <!------- FOOTER FIN --------------->
+</body>
+</html>

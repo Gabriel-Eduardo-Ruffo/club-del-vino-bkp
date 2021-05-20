@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+<!------- HEADER INICIO ------------>
+<%- include('../partials/header.ejs') %>
+<!------- HEADER FIN ---------------->
+
+<!--***LISTADO DE PRODUCTOS DEL CARRITO 1col***-->
+    <div class="titleProductCart">
+        <h2>EDITAR/BORRAR PRODUCTOS</h2>
+    </div>
+    <div class="containerListProductCart">        
+        <section><!--Listado con scroll de productos seleccionados para comprar-->
+            <!-- PROD INICIO-->
+            <%- include('../partials/prodListEdit.ejs') %>
+            <!-- PROD FIN-->
+        </section>   
+    </div>
+    <!-----------------------------------> 
+
+<!--************FOOTER*************-->
+    <footer class="fill-fixed">
+        <!--Este footer no se vera, es para rellenar espacio y que no queden tarjetas a medio mostrar-->
+    </footer>
+<!----------------------------------->   
+</body>
+</html>

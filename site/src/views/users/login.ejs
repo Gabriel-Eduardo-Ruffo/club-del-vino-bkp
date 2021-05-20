@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+ <body>
+  
+    <!------- HEADER INICIO ------------>
+    <%- include('../partials/header.ejs') %>
+    <!------- HEADER FIN ---------------->
+    
+    <!-- formulario login -->
+    <section class="content-form-login-register">
+        <form action="/users/login-account"  method="POST" class="login-form" id="formLoginUser">
+          <h1>LOG-IN</h1>
+          <div class="control-field-login-register ">
+            <div class="block-input-login-register">
+              <input type="text" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.email : null %>">
+              <label>Email</label>
+              <span class="focus-border-login-register-effect"></span>
+              <!--Mensaje de error desde el backend-->
+              <% if( locals.errors && errors.email){ %><p class="errorMessage"> <%= errors.email.msg %></p><% } %>
+              <!------------------------------------->
+            </div>      
+            <div class="block-checkIcon-login-register">
+              <!--chequeo en el front para verificar los campos-->
+              <span class="far emojiCheck" id="check_face_validation_login_user_mail"></span><div class="msgCheck" id="msgCheck_user_email"><p>Debe ser un email valido</p></div>
+            </div>
+          </div>
+  
+          <div class="control-field-login-register ">
+            <div class="block-input-login-register">
+              <input type="password" id="password" name="password" class="input-login-register-effect" placeholder autocomplete="off">
+              <label>Contraseña</label>
+              <span class="focus-border-login-register-effect"></span>
+            </div>
+            <div class="block-checkIcon-login-register">
+              <!--chequeo en el front para verificar los campos-->
+              <span class="far emojiCheck" id="check_face_validation_login_user_password"></span><div class="msgCheck" id="msgCheck_user_password"><p>El password debe tener mas de 8 caracteres</p></div>
+            </div>
+          </div>
+            <div class="login-container-checkbox">
+              <p class="login-label-checkbox">Recordarme</p>
+              <div class="login-remember-checkbox">
+                      <input type="checkbox" id="remember" name="remember" >
+                  <label for="remember"></label>
+              </div>
+          </div>
+  
+          <div class="control-form-button">
+            <button type="submit" class="control-button" id="button_submit_login_form">LOGIN</button>
+          </div> 
+  
+        </form>
+      </section>
+
+  
+      <!------- FOOTER INICIO ------------>
+      <%- include('../partials/footer.ejs') %>
+      <!------- FOOTER FIN ---------------> 
+    </body>
+    <script src="/js/effects.js"></script>
+</html>

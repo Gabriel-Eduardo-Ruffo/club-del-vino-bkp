@@ -1,0 +1,274 @@
+.descriptionProduct-title{
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-family: "lato",Arial, Helvetica, sans-serif;
+}
+.container{
+    /*background-color: red;*/
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.descriptionProduct-container{
+    /*background-color: blue;*/
+    width: 80%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.descriptionProduct-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.descriptionProduct-name-title{
+    /*background-color: tomato;*/
+    margin: 1rem;
+    width: 100%;
+    height: 2rem;
+    font-family: "lato",Arial;
+    color: #B0976D;
+    font-size: 1rem;
+}
+.descriptionProduct-name-title-offer{
+    background-color: #B0976D;
+    padding: .5rem;
+    width: 100%;
+    height: 2rem;
+    font-family: "lato",Arial;
+    color: #161616;
+    font-size: 1rem;
+}
+
+.descriptionProduct-name-edit{
+    background-color : lightgrey;
+    margin: 1rem;
+    font-family: "lato",Arial;
+    color : black;
+    font-size: 1rem;
+}
+
+/* =========== Texto de la descripción del producto ================ */
+.descriptionProduct-description{
+    /*background-color: green;*/
+    color: #B0976D;
+}
+.descriptionProduct-description p{
+    font-family: "lato",Arial;
+    font-size: 0.7rem;
+}
+
+.descriptionProduct-details{
+    margin: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.descriptionProduct-image{
+    background-color: #F1F1F1;
+    border-radius: 15px;
+    width: 60%;
+    overflow: hidden;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+.descriptionProduct-image img{
+    padding: 0.5rem;
+    width: 100%;
+}
+
+/* == Configuración texto detalle al lado de image == */
+.descriptionProduct-productLines {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+
+.descriptionProduct-productLines .bodega,
+.descriptionProduct-productLines .type,
+.descriptionProduct-productLines .year,
+.descriptionProduct-productLines .price,
+.descriptionProduct-productLines .description, 
+.descriptionProduct-productLines .cantProd label{
+    color: white;
+    font-family:  "lato",Arial, sans-serif;
+    font-size: 0.7rem;
+}
+
+.description_price_line_through{
+    font-size: 0.5rem;
+    text-decoration: line-through;
+}
+
+.description_offer_price{
+    font-size: 0.7rem;
+    color: #B0976D;
+    font-weight: bold;
+}
+
+.descriptionProduct-productLines .description-widescreen{
+    display: none;
+}
+.descriptionProduct-productLines .bodega{
+    font-weight: bold;
+    margin-top: 0;
+}
+.descriptionProduct-productLines .cantProd label {
+    color: white;
+    font-family:  "lato",Arial, sans-serif;
+    font-size: 0.7rem;
+}
+
+/* ====  Botón Agregar al carrito ==== */
+.descriptionProduct-cartButton { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.descriptionProduct-cartButton button{
+    background-color: #B0976D;
+    color:black;
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    height: 2rem;
+}
+
+
+
+/******MEDIA QUERY MOBILE / TABLET**********/
+@media (min-width: 360px) {
+    .descriptionProduct-name-title{
+        font-size: 2rem;
+    }
+
+    .descriptionProduct-name-title-offer{
+        height: 3rem;
+        font-size: 2rem;
+    }
+
+    .descriptionProduct-description p{
+        font-size: 1rem;
+    }
+
+    .descriptionProduct-productLines .bodega,
+    .descriptionProduct-productLines .type,
+    .descriptionProduct-productLines .year,
+    .descriptionProduct-productLines .price,
+    .descriptionProduct-productLines .description, 
+    .descriptionProduct-productLines .cantProd label {
+        font-size: 1rem;
+    }
+    .descriptionProduct-cartButton button{
+        height: 2.5rem;
+    }
+
+    .description_price_line_through{
+        font-size: 0.7rem;
+        text-decoration: line-through;
+    }
+    
+    .description_offer_price{
+        font-size: 1rem;
+        color: #B0976D;
+        font-weight: bold;
+    }
+}
+
+
+@media (min-width: 425px) {
+    /* Tablets */
+
+  
+}
+
+@media (min-width: 768px) {
+    .descriptionProduct-container{
+        background-color: #F1F1F1;
+        border-radius: 15px;
+        padding: 1rem 0 1rem 0;
+    }
+    /*.descriptionProduct-container :nth-child(2) { order: 1; }*/
+
+    .descriptionProduct-container form{
+        width: 80%;
+        max-width: 700px;
+    }
+
+    .descriptionProduct-description{
+        padding: 0 10% 0 10%;
+    }
+    .descriptionProduct-description p{
+        color: #161616;
+    }
+
+    .descriptionProduct-image{
+        width: 300px;
+        height: 300px;
+    }
+    .descriptionProduct-image img{
+        object-fit: contain;
+    }
+    
+
+    .descriptionProduct-details{
+        width: 100%;
+        margin:0;
+        justify-content: left;
+        align-items: left;
+    }
+
+    .descriptionProduct-description p{
+        display: none;
+    }
+
+    .descriptionProduct-productLines{
+        width: 60%;
+        justify-content: flex-start;
+    }
+    .descriptionProduct-productLines .bodega,
+    .descriptionProduct-productLines .type,
+    .descriptionProduct-productLines .year,
+    .descriptionProduct-productLines .price,
+    .descriptionProduct-productLines .description, 
+    .descriptionProduct-productLines .cantProd label {
+        color: #161616;
+        margin: 0.5rem 0 0.5rem 0;
+    }
+
+    .description_price_line_through{
+        color: #161616;
+    }
+    
+    .description_offer_price{
+        font-size: 1rem;
+    }
+
+    .descriptionProduct-productLines .bodega{
+        font-size: 1.5rem;
+    }
+    .descriptionProduct-productLines .cantProd{
+        margin: 8px 0 8px 0;
+    }
+    .descriptionProduct-productLines .description-widescreen{
+        display: inline;
+        margin-bottom: 3rem;
+    }
+
+    .descriptionProduct-cartButton { 
+        margin-top: 2rem;
+    }
+  
+}
